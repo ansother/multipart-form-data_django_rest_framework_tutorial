@@ -1,0 +1,20 @@
+"""
+This files provides commands to upload files to the django-rest-framework api. 
+
+1.open a python interpreter (command line on *nix like systems -> python).
+2. import requests. Make sure you install the requirements.txt with pip.
+3. swap out the YOUR_URL in the url variables with your root url.
+4. copy and paste the last three lines. These commands will upload the data and file to the api.
+"""
+
+import requests
+
+url_upload_form = 'YOUR_URL/api/upload_form/'
+
+url_upload_serializers = 'YOUR_URL/api/upload_serializers/'
+
+files = {'docfile': ('report.csv', 'some,data,to,send\nanother,row,to,send\n')}
+
+r=requests.post(url_upload_form, data={'title':'file_upload_form'}, files=files)
+
+r=requests.post(url_upload_serializers, data={'title':'file_upload_serializers'}, files=files)
